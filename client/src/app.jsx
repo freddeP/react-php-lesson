@@ -1,21 +1,18 @@
-import Cars from "./components/cars";
+import Quotes from "./components/quotes";
 
 function App() {
     return ( 
 
         <div>
-            <h2>My React APP on a Apache Server with PHP</h2>
-            <p>I love php with react...</p>
-            <i>LOVE LOVE LOVE parcel...</i>
+            <h2>My Quotes app</h2>
 
+            <h4>Hello</h4>
 
+            <Quotes></Quotes>
 
             <hr />
-            <Cars></Cars>
-            <Cars></Cars>
-            <Cars></Cars>
-            <Cars></Cars>
-  
+     
+
 
         </div>
     

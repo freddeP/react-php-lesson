@@ -5675,55 +5675,33 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _cars = require("./components/cars");
-var _carsDefault = parcelHelpers.interopDefault(_cars);
+var _quotes = require("./components/quotes");
+var _quotesDefault = parcelHelpers.interopDefault(_quotes);
 function App() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "My React APP on a Apache Server with PHP"
+                children: "My Quotes app"
             }, void 0, false, {
                 fileName: "src/app.jsx",
                 lineNumber: 7,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "I love php with react..."
-            }, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 8,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                children: "LOVE LOVE LOVE parcel..."
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                children: "Hello"
             }, void 0, false, {
                 fileName: "src/app.jsx",
                 lineNumber: 9,
                 columnNumber: 13
             }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _quotesDefault.default), {}, void 0, false, {
+                fileName: "src/app.jsx",
+                lineNumber: 11,
+                columnNumber: 13
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/app.jsx",
                 lineNumber: 13,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carsDefault.default), {}, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 14,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carsDefault.default), {}, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 15,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carsDefault.default), {}, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 16,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carsDefault.default), {}, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 17,
                 columnNumber: 13
             }, this)
         ]
@@ -5743,7 +5721,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/cars":"ddO2B"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/quotes":"6Z2L3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -5911,11 +5889,11 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"ddO2B":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4faa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"7422ead32dcc1e6b":"786KC"}],"6Z2L3":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e65e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4faa.prelude(module);
+$parcel$ReactRefreshHelpers$e65e.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -5927,8 +5905,9 @@ function Cars() {
     _s();
     const [cars, setCars] = (0, _react.useState)([]);
     async function getCars() {
-        let response = await fetch("./data");
+        let response = await fetch("./quotes");
         let c = await response.json();
+        console.log(c);
         setCars((prev)=>[
                 ...c
             ]);
@@ -5941,8 +5920,8 @@ function Cars() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: JSON.stringify(cars)
     }, void 0, false, {
-        fileName: "src/components/cars.jsx",
-        lineNumber: 27,
+        fileName: "src/components/quotes.jsx",
+        lineNumber: 28,
         columnNumber: 9
     }, this);
 }
@@ -5950,19 +5929,19 @@ _s(Cars, "/EQt6wAxOgtQYDavlJ/SWb5B/tI=");
 _c = Cars;
 exports.default = Cars;
 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-    fileName: "src/components/cars.jsx",
-    lineNumber: 38,
+    fileName: "src/components/quotes.jsx",
+    lineNumber: 39,
     columnNumber: 1
 }, undefined);
 var _c;
 $RefreshReg$(_c, "Cars");
 
-  $parcel$ReactRefreshHelpers$4faa.postlude(module);
+  $parcel$ReactRefreshHelpers$e65e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;

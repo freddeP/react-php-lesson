@@ -7,8 +7,9 @@ function Cars() {
 
     async function getCars(){
 
-        let response = await fetch("./data");
+        let response = await fetch("./quotes");
         let c = await response.json();
+        console.log(c);
     
         setCars(prev=>[...c]);
 

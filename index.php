@@ -6,10 +6,31 @@ session_set_cookie_params([
 session_start();
 
 require_once("Router.php");
+require_once("Classes/Db.php");
+require_once("Classes/Debug.php");
 
 
 
 // ROUTES
+
+
+Router::get("/db", function(){
+
+    Debug::print(Db::createQuote("Snart Lunch","Vad är det för mat idag?",12,"LENNY"));
+
+    Debug::print(Db::readQuotes());
+
+});
+
+//QUOTES-ROUTES
+Router::get("/quotes", function(){
+
+    header("Content-Type:application/json");
+    echo json_encode( Db::readQuotes(), JSON_PRETTY_PRINT);
+
+});
+
+
 
 
 Router::get("/", function(){
@@ -19,7 +40,7 @@ Router::get("/", function(){
 });
 
 
-Router::get("/data", function(){
+/* Router::get("/data", function(){
 
     header("Content-Type:application/json");
     $data = [
@@ -43,7 +64,7 @@ Router::get("/data", function(){
 
     echo json_encode($data, JSON_PRETTY_PRINT);
 
-});
+}); */
 
 
 
