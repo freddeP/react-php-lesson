@@ -8,6 +8,7 @@ session_start();
 require_once("Router.php");
 require_once("Classes/Db.php");
 require_once("Classes/Debug.php");
+require_once("Classes/Auth.php");
 
 
 
@@ -30,7 +31,30 @@ Router::get("/quotes", function(){
 
 });
 
+Router::post("/quotes", function(){
 
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $user_id = 12;   // Hämtas senare från sessions
+    $author = "Lenny"; // Hämtas senare från sessions
+
+   $id = Db::createQuote($title, $body, $user_id, $author);
+   header("Content-Type:application/json");
+   echo json_encode( $id, JSON_PRETTY_PRINT);
+});
+
+
+
+// AUTH-routes
+
+Router::post("/register",function(){
+
+    $response = Auth::register();
+
+    header("Content-Type:application/json");
+    echo json_encode( $response, JSON_PRETTY_PRINT);
+
+});
 
 
 Router::get("/", function(){

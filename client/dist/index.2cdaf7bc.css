@@ -10,4 +10,12 @@ html {
   height: 100%;
 }
 
+input {
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+  font-size: 1.4rem;
+  display: block;
+}
+
 /*# sourceMappingURL=index.2cdaf7bc.css.map */

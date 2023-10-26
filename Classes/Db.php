@@ -27,26 +27,21 @@ class Db{
         (?, ?, ?, ?)";
 
         $stmt = $con->prepare($query);
-
         $stmt->bind_param("ssds",$title, $body, $user_id,$author);
-
         $stmt->execute();
         $stmt->close();
-
-     /*    $query = "INSERT INTO quotes 
-        (title, body, user_id, author)
-        VALUES
-        ('$title', '$body', $user_id, '$author')"; */
-
-        
-
-   /*      $result = $con->query($query); */
 
         $id = $con->insert_id;
 
         $con->close();
 
-        return [$id];
+        return [
+            "id"=>$id,
+            "title"=>$title,
+            "body"=>$body,
+            "user_id"=>$user_id,
+            "author"=>$author
+        ];
 
 
 
@@ -71,6 +66,67 @@ class Db{
     }
     public static function deleteQuote($id){}
     public static function updateQuote(){}
+
+
+    /// register, login
+
+    public static function register($name, $email, $password){
+
+        $con = self::connect();
+        $query = "INSERT INTO users (name, email, password)
+        VALUES (?, ? ,?)
+        ";
+        $stmt = $con->prepare($query);
+
+        $stmt->bind_param("sss", $name, $email, $password);
+       
+       try{
+        $stmt->execute();
+
+       }
+       catch(Exception $e){
+        $stmt->close();
+        $con->close();
+        return ["error"=>$e->getMessage()];
+
+
+
+       }
+       $stmt->close();
+       $con->close();
+        return ["message"=>"USER CREATED"];
+
+    }
+
+    public static function findUser($email){
+
+        $con = self::connect();
+
+        $query = "SELECT * FROM users WHERE email= ?";
+        $stmt= $con->prepare($query);
+        $stmt->bind_param("s", $email);
+        
+        try{
+            $stmt->execute();
+            $result = $stmt->get_result(); // get the mysqli result
+            $user = $result->fetch_assoc(); // fetch data   
+            $stmt->close();
+            $con->close();
+            return $user;
+
+
+        }
+        catch(Exception $e){
+
+            $stmt->close();
+            $con->close();
+            return ["error"=>$e->getMessage()];
+
+        }
+
+    
+
+    }
 
 
 

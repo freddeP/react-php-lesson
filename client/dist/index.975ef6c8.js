@@ -5677,40 +5677,108 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _quotes = require("./components/quotes");
 var _quotesDefault = parcelHelpers.interopDefault(_quotes);
+var _createQuote = require("./components/createQuote");
+var _createQuoteDefault = parcelHelpers.interopDefault(_createQuote);
+var _react = require("react");
+var _s = $RefreshSig$();
 function App() {
+    _s();
+    // Fixa state för våra quotes som kommer från servern...
+    const [quotes, setQuotes] = (0, _react.useState)([]);
+    async function getQuotes() {
+        let response = await fetch("./quotes");
+        let data = await response.json();
+        setQuotes(data);
+    }
+    (0, _react.useEffect)(()=>{
+        getQuotes();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "My Quotes app"
             }, void 0, false, {
                 fileName: "src/app.jsx",
-                lineNumber: 7,
+                lineNumber: 30,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: "Hello"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createQuoteDefault.default), {
+                setQuotes: setQuotes
             }, void 0, false, {
                 fileName: "src/app.jsx",
-                lineNumber: 9,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _quotesDefault.default), {}, void 0, false, {
-                fileName: "src/app.jsx",
-                lineNumber: 11,
+                lineNumber: 32,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/app.jsx",
-                lineNumber: 13,
+                lineNumber: 33,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _quotesDefault.default), {
+                quotes: quotes
+            }, void 0, false, {
+                fileName: "src/app.jsx",
+                lineNumber: 34,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/app.jsx",
+                lineNumber: 36,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                action: "./register",
+                method: "post",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        name: "name",
+                        placeholder: "Name"
+                    }, void 0, false, {
+                        fileName: "src/app.jsx",
+                        lineNumber: 39,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "email",
+                        name: "email",
+                        placeholder: "Email"
+                    }, void 0, false, {
+                        fileName: "src/app.jsx",
+                        lineNumber: 40,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        name: "password",
+                        placeholder: "Password"
+                    }, void 0, false, {
+                        fileName: "src/app.jsx",
+                        lineNumber: 41,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "submit",
+                        value: "Register"
+                    }, void 0, false, {
+                        fileName: "src/app.jsx",
+                        lineNumber: 42,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/app.jsx",
+                lineNumber: 38,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/app.jsx",
-        lineNumber: 6,
+        lineNumber: 29,
         columnNumber: 9
     }, this);
 }
+_s(App, "SUU9YDCVpUtZ6H24bwM60eqca2E=");
 _c = App;
 exports.default = App;
 var _c;
@@ -5721,7 +5789,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/quotes":"6Z2L3"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/quotes":"6Z2L3","./components/createQuote":"gVmom","react":"21dqq"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -5899,49 +5967,113 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _s = $RefreshSig$();
-function Cars() {
-    _s();
-    const [cars, setCars] = (0, _react.useState)([]);
-    async function getCars() {
-        let response = await fetch("./quotes");
-        let c = await response.json();
-        console.log(c);
-        setCars((prev)=>[
-                ...c
-            ]);
-    }
-    // KALLA på getCars BARA EN GÅNG!!
-    (0, _react.useEffect)(()=>{
-        console.log("USE EFFECT");
-        getCars();
-    }, []);
+function Quotes({ quotes }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: JSON.stringify(cars)
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("pre", {
+            children: JSON.stringify(quotes.reverse(), null, 2)
+        }, void 0, false, {
+            fileName: "src/components/quotes.jsx",
+            lineNumber: 6,
+            columnNumber: 13
+        }, this)
     }, void 0, false, {
         fileName: "src/components/quotes.jsx",
-        lineNumber: 28,
+        lineNumber: 5,
         columnNumber: 9
     }, this);
 }
-_s(Cars, "/EQt6wAxOgtQYDavlJ/SWb5B/tI=");
-_c = Cars;
-exports.default = Cars;
-/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-    fileName: "src/components/quotes.jsx",
-    lineNumber: 39,
-    columnNumber: 1
-}, undefined);
+_c = Quotes;
+exports.default = Quotes;
 var _c;
-$RefreshReg$(_c, "Cars");
+$RefreshReg$(_c, "Quotes");
 
   $parcel$ReactRefreshHelpers$e65e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gVmom":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9e7d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9e7d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function CreateQuote({ setQuotes }) {
+    async function handleSubmit(ev) {
+        ev.preventDefault();
+        // Fixa data i url-encoded format
+        let data = new FormData(ev.target);
+        let response = await fetch("./quotes", {
+            method: "POST",
+            body: data,
+            credentials: "include"
+        });
+        let quote = await response.json();
+        setQuotes((prev)=>[
+                ...prev,
+                quote
+            ]);
+        console.log(quote);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+            onSubmit: handleSubmit,
+            action: "./quotes",
+            method: "post",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "title",
+                    placeholder: "Title"
+                }, void 0, false, {
+                    fileName: "src/components/createQuote.jsx",
+                    lineNumber: 29,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "body",
+                    placeholder: "Body"
+                }, void 0, false, {
+                    fileName: "src/components/createQuote.jsx",
+                    lineNumber: 30,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "submit",
+                    value: "Create"
+                }, void 0, false, {
+                    fileName: "src/components/createQuote.jsx",
+                    lineNumber: 31,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/createQuote.jsx",
+            lineNumber: 27,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/createQuote.jsx",
+        lineNumber: 26,
+        columnNumber: 9
+    }, this);
+}
+_c = CreateQuote;
+exports.default = CreateQuote;
+var _c;
+$RefreshReg$(_c, "CreateQuote");
+
+  $parcel$ReactRefreshHelpers$9e7d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;

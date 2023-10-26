@@ -10,3 +10,11 @@ html{
     background-color:#404040;
     color:white;
 }
+
+input{
+    display:block;
+    width:80%;
+    margin:auto;
+    padding:2%;
+    font-size:1.4rem;
+}

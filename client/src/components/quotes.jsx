@@ -1,41 +1,14 @@
-import { useEffect, useState } from "react";
+function Quotes({quotes}) {
+    return ( 
 
-
-function Cars() {
-
-    const [cars, setCars] = useState([]);
-
-    async function getCars(){
-
-        let response = await fetch("./quotes");
-        let c = await response.json();
-        console.log(c);
-    
-        setCars(prev=>[...c]);
-
-    }
-
-    // KALLA på getCars BARA EN GÅNG!!
-    useEffect(()=>{
-        console.log("USE EFFECT");
-        getCars();
-    },[]);
-
-
-
-    return (  
 
         <div>
-
-            {JSON.stringify(cars)}
-
+            <pre>
+                {JSON.stringify(quotes.reverse(),null, 2)}
+            </pre>
         </div>
 
-    );
+     );
 }
 
-export default Cars;
-
-<div>
-
-</div>
+export default Quotes;
